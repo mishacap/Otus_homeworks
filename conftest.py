@@ -13,7 +13,7 @@ def pytest_addoption(parser):
         default="http://192.168.31.66"
     )
     parser.addoption(
-        "--browser", default="chrome"
+        "--browser", default="ch", choices=["ya", "ch", "ff"]
     )
     parser.addoption(
         "--headless", action="store_true"
@@ -35,7 +35,6 @@ def browser(request):
     headless_mode = request.config.getoption("--headless")
     yadriver = request.config.getoption("--yadriver")
     yabrowser = request.config.getoption("--yabrowser")
-    # base_url = request.config.getoption("--url")
 
 
     if browser_name == "ya":
@@ -54,7 +53,7 @@ def browser(request):
     elif browser_name == "ff":
         options = FFOptions()
         if headless_mode:
-            options.add_argument("-headless")
+            options.add_argument("--headless")
         browser = webdriver.Firefox(service=FFService(), options=options)
     else:
         raise ValueError(f"Browser {browser_name} not supported")
@@ -65,3 +64,8 @@ def browser(request):
     yield browser
 
     browser.close()
+
+
+@pytest.fixture()
+def base_url(request):
+    return request.config.getoption("--url")
