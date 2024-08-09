@@ -25,6 +25,3 @@ class BasePage:
         self.get_element(locator).click()
         for l in text:
             self.get_element(locator).send_keys(l)
-
-
-

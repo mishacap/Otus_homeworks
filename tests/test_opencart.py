@@ -8,6 +8,15 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
+from helpers import create_random_user
+from page_objects.main_page import MainPage
+from page_objects.user_page import UserPage
+from page_objects.product_page import ProductPage
+from page_objects.cart_page import CartPage
+from page_objects.checkout_page import CheckoutPage
+from page_objects.comparison_page import ComparisonPage
+from page_objects.wishlist_page import WishListPage
+from page_objects.alert_element import AlertSuccessElement
 
 
 
@@ -49,6 +58,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 #         (By.CSS_SELECTOR, "#input-newsletter")))
 #     WebDriverWait(browser, 2).until(EC.visibility_of_element_located(
 #         (By.CSS_SELECTOR, "#form-register > div > button")))
+#
 #
 # def test_product_elements(browser, base_url):
 #     browser.get(f"{base_url}:8081/en-gb/product/apple-cinema")
@@ -102,51 +112,31 @@ from selenium.webdriver.common.action_chains import ActionChains
 #         (By.CSS_SELECTOR, "#nav-profile > a > span")))
 #     browser.find_element(By.CSS_SELECTOR, "#nav-logout > a > span").click()
 
-# def test_add_to_cart_top(browser, base_url):
-#     browser.get(f"{base_url}:8081")
-#     selectors = [
-#         '//div[contains(@class, "product-thumb")]//a[contains(@href, "macbook")]/../..//button[contains(@formaction, "checkout/cart.add")]',
-#         '//div[contains(@class, "product-thumb")]//a[contains(@href, "iphone")]/../..//button[contains(@formaction, "checkout/cart.add")]'
-#     ]
-#     random_selector = random.choice(selectors)
-#     browser.find_element(By.XPATH,
-#                          random_selector).location_once_scrolled_into_view
-#     time.sleep(2)
-#     add_to_cart = browser.find_element(By.XPATH, random_selector)
-#     add_to_cart.click()
-#     time.sleep(2)
-#     WebDriverWait(browser, 2).until(
-#         EC.visibility_of_element_located((By.CSS_SELECTOR, "#alert > div"))
-#     )
-#     WebDriverWait(browser, 3).until(
-#         EC.visibility_of_element_located((By.CSS_SELECTOR, "#alert > div > button"))
-#     ).click()
-#     browser.find_element(By.CSS_SELECTOR,
-#                          "#header-cart .btn.btn-lg.btn-inverse").location_once_scrolled_into_view
-#     time.sleep(2)
-#     cart = browser.find_element(By.CSS_SELECTOR,
-#                                 "#header-cart .btn.btn-lg.btn-inverse")
-#     cart.click()
-#     time.sleep(2)
-#     WebDriverWait(browser, 2).until(
-#         EC.visibility_of_element_located((By.CSS_SELECTOR,
-#                                           "img.img-thumbnail"))
-#     )
 
-
-def test_check_prices(browser, base_url):
+def test_add_to_cart(browser, base_url, db_connection):
     browser.get(f"{base_url}:8081")
-    WebDriverWait(browser, 2).until(
-        EC.element_to_be_clickable((By.CSS_SELECTOR, "#form-currency"))
-    ).click()
-    euro = browser.find_element(By.CSS_SELECTOR, "a[href='EUR']")
-    euro.click()
-    price_element = WebDriverWait(browser, 3).until(
-        EC.visibility_of_element_located((By.CSS_SELECTOR, ".price"))
-    )
-    price_text = price_element.text
-    assert "€" in price_text
+    product_name = MainPage(browser).get_featured_product_name(1)
+    MainPage(browser).click_featured_product(1)
+    ProductPage(browser).add_to_cart()
+    AlertSuccessElement(browser).shopping_cart.click()
+    CartPage(browser) \
+        .wait_for_product_in_cart(product_name) \
+        .click_checkout()
+    CheckoutPage(browser).click_login_page_link()
+    UserPage(browser).login(*create_random_user(db_connection))
+    CheckoutPage(browser).wait_page_load()
 
 
-
+# def test_check_prices(browser, base_url):
+#     browser.get(f"{base_url}:8081")
+#     WebDriverWait(browser, 2).until(
+#         EC.element_to_be_clickable((By.CSS_SELECTOR, "#form-currency"))
+#     ).click()
+#     euro = browser.find_element(By.CSS_SELECTOR, "a[href='EUR']")
+#     euro.click()
+#     price_element = WebDriverWait(browser, 3).until(
+#         EC.visibility_of_element_located((By.CSS_SELECTOR, ".price"))
+#     )
+#     price_text = price_element.text
+#     assert "€" in price_text
 

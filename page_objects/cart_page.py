@@ -16,4 +16,3 @@ class CartPage(BasePage):
     def wait_for_product_in_cart(self, product_name):
         self.get_element(self._product_name(product_name))
         return self
-
