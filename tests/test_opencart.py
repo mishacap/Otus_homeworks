@@ -8,15 +8,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
-from helpers import create_random_user
-from page_objects.main_page import MainPage
-from page_objects.user_page import UserPage
-from page_objects.product_page import ProductPage
-from page_objects.cart_page import CartPage
-from page_objects.checkout_page import CheckoutPage
-from page_objects.comparison_page import ComparisonPage
-from page_objects.wishlist_page import WishListPage
-from page_objects.alert_element import AlertSuccessElement
+
 
 
 

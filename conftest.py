@@ -70,15 +70,3 @@ def browser(request):
 @pytest.fixture()
 def base_url(request):
     return request.config.getoption("--url")
-
-@pytest.fixture(scope="session")
-def db_connection(request):
-    connection = mysql.connector.connect(
-        user='bn_opencart',
-        password='',
-        host='192.168.31.66',
-        database='bitnami_opencart',
-        port='8888'
-    )
-    request.addfinalizer(connection.close)
-    return connection
