@@ -15,12 +15,6 @@ from page_objects.registration_page import RegistrationPage
 from helpers import get_fake_product, get_random_index, get_user_data
 
 
-def test_administration_login(browser, base_url):
-    browser.get(f"{base_url}:8081/administration/")
-    admin_page = AdministrationPage(browser)
-    admin_page.login(username="user", password="bitnami")
-    admin_page.wait_logged_in()
-
 def test_main_elements(browser, base_url):
     browser.get(f"{base_url}:8081/")
     main_page = MainPage(browser)
@@ -39,7 +33,7 @@ def test_featured_elements(browser, base_url):
 def test_featured_click(browser, base_url):
     browser.get(f"{base_url}:8081/")
     main_page = MainPage(browser)
-    main_page.click_featured_product(3)
+    main_page.click_featured_product_2()
     product_page = ProductPage(browser)
     product_page.wait_product_elements()
 
@@ -53,6 +47,13 @@ def test_registarion_new_user(browser, base_url):
     registration_page = RegistrationPage(browser)
     user_data = get_user_data()
     registration_page.registration(*user_data)
+
+def test_administration_login(browser, base_url):
+    browser.get(f"{base_url}:8081/administration/")
+    admin_page = AdministrationPage(browser)
+    admin_page.login(username="user", password="bitnami")
+    admin_page.wait_logged_in()
+    admin_page.logout()
 
 
 

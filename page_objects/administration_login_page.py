@@ -17,3 +17,8 @@ class AdministrationPage(BasePage):
     def wait_logged_in(self):
         self.get_element(self.LOGOUT_BUTTON)
         return self
+
+    def logout(self):
+        self.get_element(self.LOGOUT_BUTTON)
+        self.click(self.LOGOUT_BUTTON)
+        return self

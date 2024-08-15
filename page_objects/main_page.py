@@ -43,4 +43,9 @@ class MainPage(BasePage):
         else:
             self.get_elements(self.FEATURED_PRODUCT_NAME)[index].click()
 
+    def click_featured_product_2(self):
+        self.get_element(self.FEATURED_ONE)
+        self.click(self.FEATURED_ONE)
+        return self
+
 
