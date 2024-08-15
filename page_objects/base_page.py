@@ -18,7 +18,7 @@ class BasePage:
         return WebDriverWait(self.browser, timeout).until(EC.visibility_of_all_elements_located(locator))
 
     def click(self, locator: tuple):
-        ActionChains(self.browser).move_to_element(self.get_elements(locator)).pause(0.3).click().perform()
+        ActionChains(self.browser).move_to_element(self.get_element(locator)).pause(0.3).click().perform()
 
     def input_value(self, locator: tuple, text: str):
         self.get_element(locator).click()
