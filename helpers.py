@@ -21,3 +21,9 @@ def get_user_data():
     email = fake.email()
     password = "test"
     return firstname, lastname, email, password
+
+def get_product_data():
+    fake = Faker()
+    productname = "test " + fake.text(max_nb_chars=5).rstrip('.')
+    metatag = fake.text(max_nb_chars=5).rstrip('.')
+    return productname, metatag
