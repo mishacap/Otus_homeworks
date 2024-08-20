@@ -108,4 +108,3 @@ def test_delete_product(browser, base_url):
     admin_page.delete_product()
     alert = browser.switch_to.alert
     alert.accept()
-
