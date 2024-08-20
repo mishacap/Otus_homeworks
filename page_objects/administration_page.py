@@ -28,6 +28,12 @@ class AdministrationPage(BasePage):
     FILTER_BUTTON = By.CSS_SELECTOR, "#button-filter"
     DATA_ELEMENT = By.CSS_SELECTOR, "#form-product > div.table-responsive > table > tbody > tr > td:nth-child(3)"
 
+    PRODUCT_CECKBOX_FIRST = By.CSS_SELECTOR, "#form-product > div.table-responsive > table > tbody > tr:nth-child(1) > td:nth-child(1) > input"
+    PRODUCT_COPY_BUTTON = By.CSS_SELECTOR, "#content > div.page-header > div > div > button:nth-child(3)"
+    PRODUCT_CHECKBOX_SECOND = By.CSS_SELECTOR, "#form-product > div.table-responsive > table > tbody > tr:nth-child(2) > td:nth-child(1) > input"
+    PRODUCT_DELETE_BOTTON = By.CSS_SELECTOR, "#content > div.page-header > div > div > button.btn.btn-danger"
+    PRODUCT_STATUS = By.CSS_SELECTOR, "#form-product > div.table-responsive > table > tbody > tr:nth-child(2) > td:nth-child(3) > small"
+
 
 
     def login(self, username, password):
@@ -77,6 +83,28 @@ class AdministrationPage(BasePage):
     def wait_filter_data(self):
         data_element = self.get_element(self.DATA_ELEMENT)
         return self
+
+    def copy_product(self):
+        self.get_element(self.PRODUCT_CECKBOX_FIRST)
+        self.click(self.PRODUCT_CECKBOX_FIRST)
+        self.get_element(self.PRODUCT_COPY_BUTTON)
+        self.click(self.PRODUCT_COPY_BUTTON)
+        return self
+
+    def delete_product(self):
+        self.get_element(self.PRODUCT_CHECKBOX_SECOND)
+        self.click(self.PRODUCT_CHECKBOX_SECOND)
+        self.get_element(self.PRODUCT_DELETE_BOTTON)
+        self.click(self.PRODUCT_DELETE_BOTTON)
+        return self
+
+    def chek_status(self):
+        product_status = self.get_element(self.PRODUCT_STATUS)
+        return product_status.text
+
+
+
+
 
 
 

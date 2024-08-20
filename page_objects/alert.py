@@ -6,9 +6,9 @@ class Alert(BasePage):
 
 
 
-    def confirm_alert(self):
-        self.get_element(self.ALERT)
-        self.click(self.ALERT)
+    def check_alert(self):
+        self.get_alert(self.ALERT)
+        return self
 
 
 

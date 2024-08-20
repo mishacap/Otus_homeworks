@@ -1,17 +1,13 @@
 import time
 
-from selenium.webdriver.common.by import By
-from conftest import browser, base_url
-from faker import Faker
 
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.action_chains import ActionChains
+from conftest import browser, base_url
+
 from page_objects.administration_page import AdministrationPage
 from page_objects.main_page import MainPage
 from page_objects.product_page import ProductPage
 from page_objects.registration_page import RegistrationPage
+from page_objects.alert import Alert
 from helpers import get_fake_product, get_random_index, get_user_data, get_product_data
 
 
@@ -106,5 +102,10 @@ def test_delete_product(browser, base_url):
     admin_page = AdministrationPage(browser)
     admin_page.login(username="user", password="bitnami")
     admin_page.open_catalog()
-    time.sleep(5)
+    admin_page.copy_product()
+    status = admin_page.chek_status()
+    assert "Disabled" in status
+    admin_page.delete_product()
+    alert = browser.switch_to.alert
+    alert.accept()
 

@@ -17,6 +17,9 @@ class BasePage:
     def get_elements(self, locator: tuple, timeout=3):
         return WebDriverWait(self.browser, timeout).until(EC.visibility_of_all_elements_located(locator))
 
+    def get_alert(self, locator: tuple, timeout=3):
+        return WebDriverWait(self.browser, timeout).until(EC.alert_is_present(locator))
+
     def click(self, locator: tuple):
         ActionChains(self.browser).move_to_element(self.get_element(locator)).pause(0.3).click().perform()
 
