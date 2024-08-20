@@ -15,7 +15,7 @@ def pytest_addoption(parser):
         default="http://192.168.31.66"
     )
     parser.addoption(
-        "--browser", default="ch", choices=["ya", "ch", "ff"]
+        "--browser", default="Chrome", choices=["Yandex", "Chrome", "Firefox"]
     )
     parser.addoption(
         "--headless", action="store_true"
@@ -51,7 +51,7 @@ def browser(request):
 
     logger.info("===> Test %s started at %s" % (request.node.name, datetime.datetime.now()))
 
-    if browser_name == "ya":
+    if browser_name == "Yandex":
         options = Options()
         if headless_mode:
             options.add_argument("headless=new")
@@ -59,12 +59,12 @@ def browser(request):
         service = Service(
             executable_path=yadriver)
         browser = webdriver.Chrome(service=service, options=options)
-    elif browser_name == "ch":
+    elif browser_name == "Chrome":
         options = Options()
         if headless_mode:
             options.add_argument("headless=new")
         browser = webdriver.Chrome(service=Service(), options=options)
-    elif browser_name == "ff":
+    elif browser_name == "Firefox":
         options = FFOptions()
         if headless_mode:
             options.add_argument("--headless")

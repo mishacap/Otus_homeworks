@@ -1,6 +1,9 @@
-INFO ===> Test test_registration_elements started at 2024-08-20 17:14:06.706918
+INFO ===> Test test_registration_elements started at 2024-08-20 18:16:20.929334
 INFO Browser ch started
-INFO ===> Test test_registration_elements finished at 2024-08-20 17:14:09.036039
-INFO ===> Test test_registration_elements started at 2024-08-20 17:19:22.811729
+INFO ===> Test test_registration_elements finished at 2024-08-20 18:16:21.882990
+INFO ===> Test test_registration_elements started at 2024-08-20 18:17:23.281836
 INFO Browser ch started
-INFO ===> Test test_registration_elements finished at 2024-08-20 17:19:24.995225
+INFO ===> Test test_registration_elements finished at 2024-08-20 18:17:24.868604
+INFO ===> Test test_registration_elements started at 2024-08-20 18:21:27.227800
+INFO Browser Chrome started
+INFO ===> Test test_registration_elements finished at 2024-08-20 18:21:28.194825

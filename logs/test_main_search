@@ -1,6 +1,15 @@
-INFO ===> Test test_main_search started at 2024-08-20 17:13:57.284665
+INFO ===> Test test_main_search started at 2024-08-20 18:16:13.369897
 INFO Browser ch started
-INFO ===> Test test_main_search finished at 2024-08-20 17:14:00.932251
-INFO ===> Test test_main_search started at 2024-08-20 17:19:13.642608
+INFO ===> Test test_main_search finished at 2024-08-20 18:16:14.324179
+INFO Execute SEARCH of Wonder 
+INFO MainPage: Input Wonder  in input ('css selector', '#search > input')
+INFO ===> Test test_main_search started at 2024-08-20 18:17:15.696789
 INFO Browser ch started
-INFO ===> Test test_main_search finished at 2024-08-20 17:19:17.138702
+INFO Execute SEARCH of Nat
+INFO MainPage: Input Nat in input ('css selector', '#search > input')
+INFO ===> Test test_main_search finished at 2024-08-20 18:17:18.670427
+INFO ===> Test test_main_search started at 2024-08-20 18:21:19.701740
+INFO Browser Chrome started
+INFO ===> Test test_main_search finished at 2024-08-20 18:21:20.655155
+INFO Execute SEARCH of Suddenl
+INFO MainPage: Input Suddenl in input ('css selector', '#search > input')
