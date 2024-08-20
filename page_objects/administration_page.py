@@ -101,15 +101,3 @@ class AdministrationPage(BasePage):
     def chek_status(self):
         product_status = self.get_element(self.PRODUCT_STATUS)
         return product_status.text
-
-
-
-
-
-
-
-
-
-
-
-

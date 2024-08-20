@@ -1,6 +1,3 @@
-import time
-
-
 from conftest import browser, base_url
 
 from page_objects.administration_page import AdministrationPage
@@ -15,6 +12,7 @@ def test_main_elements(browser, base_url):
     browser.get(f"{base_url}:8081/")
     main_page = MainPage(browser)
     main_page.wait_main_elements()
+
 
 def test_main_search(browser, base_url):
     browser.get(f"{base_url}:8081/")
