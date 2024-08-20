@@ -22,6 +22,7 @@ class MainPage(BasePage):
 
 
     def main_search(self, value):
+        self.logger.info("Execute SEARCH of %s", value)
         self.input_value(self.SEARCH_INPUT, value)
         self.click(self.SEARCH_BUTTON)
         self.get_element(self.SEARCH_ELEMENT)

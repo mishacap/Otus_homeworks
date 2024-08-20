@@ -101,7 +101,7 @@ def test_delete_product(browser, base_url):
     admin_page.login(username="user", password="bitnami")
     admin_page.open_catalog()
     admin_page.copy_product()
-    status = admin_page.chek_status()
+    status = admin_page.cheсk_status()
     assert "Disabled" in status
     admin_page.delete_product()
     alert = browser.switch_to.alert

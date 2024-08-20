@@ -18,7 +18,7 @@ def pytest_addoption(parser):
         "--browser", default="ch", choices=["ya", "ch", "ff"]
     )
     parser.addoption(
-        "--headless", action="store"
+        "--headless", action="store_true"
     )
     parser.addoption(
         "--yadriver",
@@ -78,11 +78,13 @@ def browser(request):
 
     browser.maximize_window()
 
+    logger.info("===> Test %s finished at %s" % (request.node.name, datetime.datetime.now()))
 
     yield browser
 
+
     browser.close()
-    logger.info("===> Test %s finished at %s" % (request.node.name, datetime.datetime.now()))
+
 
 
 @pytest.fixture()

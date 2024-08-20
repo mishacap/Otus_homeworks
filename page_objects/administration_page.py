@@ -76,6 +76,7 @@ class AdministrationPage(BasePage):
         return self
 
     def find_new_product(self, name):
+        self.logger.info("Execute SEARCH of %s", name)
         self.input_value(self.FILTER_INPUT, name)
         self.click(self.FILTER_BUTTON)
         return self
@@ -98,6 +99,6 @@ class AdministrationPage(BasePage):
         self.click(self.PRODUCT_DELETE_BOTTON)
         return self
 
-    def chek_status(self):
+    def cheсk_status(self):
         product_status = self.get_element(self.PRODUCT_STATUS)
         return product_status.text
