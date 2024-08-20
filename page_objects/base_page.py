@@ -28,7 +28,7 @@ class BasePage:
         ActionChains(self.browser).move_to_element(self.get_element(locator)).pause(0.3).click().perform()
 
     def input_value(self, locator: tuple, text: str):
-        self.logger.info("%s: Input %s in input %s" % (self.class_name, text, locator))
+        self.logger.debug("%s: Input %s in input %s" % (self.class_name, text, locator))
         self.get_element(locator).click()
         self.get_element(locator).click()
         for l in text:

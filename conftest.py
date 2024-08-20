@@ -78,11 +78,9 @@ def browser(request):
 
     browser.maximize_window()
 
-    logger.info("===> Test %s finished at %s" % (request.node.name, datetime.datetime.now()))
-
     yield browser
 
-
+    logger.info("===> Test %s finished at %s" % (request.node.name, datetime.datetime.now()))
     browser.close()
 
 

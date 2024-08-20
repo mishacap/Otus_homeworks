@@ -20,6 +20,8 @@ class RegistrationPage(BasePage):
         return self
 
     def registration(self, firstname, lastname, email, password):
+        self.logger.info("Registered user with FIRST NAME: %s, LAST NAME: %s, EMAIL: %s, PASSWORD: %s" %
+                         (firstname, lastname, email, password))
         self.input_value(self.FIRST_NAME_INPUT, firstname)
         self.input_value(self.LAST_NAME_INPUT, lastname)
         self.input_value(self.EMAIL_INPUT, email)

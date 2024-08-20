@@ -58,13 +58,14 @@ class AdministrationPage(BasePage):
         self.click(self.PRODUCT)
         return self
 
-    def add_new_product(self, pruduct_name, meta_tag_title):
+    def add_new_product(self, product_name, meta_tag_title):
+        self.logger.info("Add new PRODUCT with NAME: %s, META TAG: %s" % (product_name, meta_tag_title))
         self.get_element(self.ADD_BUTTON)
         self.click(self.ADD_BUTTON)
-        self.input_value(self.PDODUCT_NAME_INPUT, pruduct_name)
+        self.input_value(self.PDODUCT_NAME_INPUT, product_name)
         self.input_value(self.META_TAG_TITLE, meta_tag_title)
         self.click(self.PRODUCT_DATA)
-        self.input_value(self.PRODUCT_MODEL_INPUT, pruduct_name)
+        self.input_value(self.PRODUCT_MODEL_INPUT, product_name)
         self.click(self.PRODUCT_CEO)
         self.input_value(self.PRODUCT_CEO_INPUT, meta_tag_title)
         self.click(self.PRODUCT_SAFE_BOTTON)
