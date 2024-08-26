@@ -37,6 +37,15 @@ def pytest_addoption(parser):
         action="store",
         default="INFO")
 
+@pytest.hookimpl(tryfirst=True, hookwrapper=True)
+def pytest_runtest_makereport(item, call):
+    outcome = yield
+    rep = outcome.get_result()
+    if rep.outcome != "passed":
+        item.status = "failed"
+    else:
+        item.status = "passed"
+
 @pytest.fixture()
 def browser(request):
     browser_name = request.config.getoption("--browser")
@@ -82,6 +91,7 @@ def browser(request):
 
     browser.logger = logger
     logger.info("Browser %s started" % browser_name)
+
 
     browser.maximize_window()
 

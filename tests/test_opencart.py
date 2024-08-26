@@ -8,6 +8,8 @@ from page_objects.product_page import ProductPage
 from page_objects.registration_page import RegistrationPage
 from page_objects.alert import Alert
 from helpers import get_fake_product, get_random_index, get_user_data, get_product_data
+from selenium.common.exceptions import ElementClickInterceptedException
+
 
 
 @allure.epic("Opencart")
@@ -141,7 +143,16 @@ def test_add_new_product(browser, base_url):
     admin_page.login(username="user", password="bitnami")
     admin_page.open_catalog()
     product_data = get_product_data()
-    admin_page.add_new_product(*product_data)
+    with allure.step("Добавляю продукт"):
+        try:
+            admin_page.add_new_product(*product_data)
+        except ElementClickInterceptedException as excep:
+            allure.attach(
+                body=browser.get_screenshot_as_png(),
+                name="screenshot_image",
+                attachment_type=allure.attachment_type.PNG)
+            raise AssertionError(excep.msg)
+
     admin_page.wait_alert_and_back()
     admin_page.find_new_product(product_data[0])
     admin_page.wait_filter_data()

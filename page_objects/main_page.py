@@ -30,6 +30,7 @@ class MainPage(BasePage):
         self.get_element(self.SEARCH_ELEMENT)
         return self
 
+    @allure.step("Ожидаю все элементы главной страницы")
     def wait_main_elements(self):
         self.get_element(self.CART_BUTTON)
         self.get_element(self.SEARCH_INPUT)
@@ -37,6 +38,7 @@ class MainPage(BasePage):
         self.get_element(self.MAIN_ELEMENTS)
         return self
 
+    @allure.step("Ожидаю все рекомендованные продукты")
     def wait_all_featured(self):
         self.get_element(self.FEATURED_ONE)
         self.get_element(self.FEATURED_TWO)
@@ -63,6 +65,7 @@ class MainPage(BasePage):
         self.click(self.CURRENCY)
         return self
 
+    @allure.step("Меняю валюту на евро")
     def change_currency_euro(self):
         self.get_element(self.CURRENCY)
         self.click(self.CURRENCY)
@@ -70,6 +73,7 @@ class MainPage(BasePage):
         self.click(self.CURRENCY_EURO)
         return self
 
+    @allure.step("Меняю валюту на фунт")
     def change_currency_pound(self):
         self.get_element(self.CURRENCY)
         self.click(self.CURRENCY)
@@ -77,6 +81,7 @@ class MainPage(BasePage):
         self.click(self.CURRENCY_POUND)
         return self
 
+    @allure.step("Меняю валюту на доллар")
     def change_currency_dollar(self):
         self.get_element(self.CURRENCY)
         self.click(self.CURRENCY)
@@ -84,14 +89,17 @@ class MainPage(BasePage):
         self.click(self.CURRENCY_DOLLAR)
         return self
 
+    @allure.step("Проверяю валюту в 'Currency'")
     def check_currency(self):
         currency_element = self.get_element(self.CURRENCY)
         return currency_element.text
 
+    @allure.step("Проверяю валюту в корзине")
     def check_currency_cart(self):
         currency_element = self.get_element(self.CART)
         return currency_element.text
 
+    @allure.step("Проверяю валюту в продуктах")
     def check_currency_featured(self):
         currency_element = self.get_element(self.FEATURED)
         return currency_element.text
