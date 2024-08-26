@@ -1,5 +1,6 @@
 import time
 
+import allure
 from selenium.webdriver.common.by import By
 from page_objects.base_page import BasePage
 
@@ -34,8 +35,7 @@ class AdministrationPage(BasePage):
     PRODUCT_DELETE_BOTTON = By.CSS_SELECTOR, "#content > div.page-header > div > div > button.btn.btn-danger"
     PRODUCT_STATUS = By.CSS_SELECTOR, "#form-product > div.table-responsive > table > tbody > tr:nth-child(2) > td:nth-child(3) > small"
 
-
-
+    @allure.step("Выполняю вход в админку под кредами: {username}, {password}")
     def login(self, username, password):
         self.input_value(self.USER_NAME, username)
         self.input_value(self.PASSWORD, password)
@@ -46,11 +46,13 @@ class AdministrationPage(BasePage):
         self.get_element(self.LOGOUT_BUTTON)
         return self
 
+    @allure.step("Выполяю выход из админки")
     def logout(self):
         self.get_element(self.LOGOUT_BUTTON)
         self.click(self.LOGOUT_BUTTON)
         return self
 
+    @allure.step("Открываю каталог")
     def open_catalog(self):
         self.get_element(self.CATALOG)
         self.click(self.CATALOG)
@@ -58,6 +60,7 @@ class AdministrationPage(BasePage):
         self.click(self.PRODUCT)
         return self
 
+    @allure.step("Добавляю новый подукт: {product_name}, с тегом: {meta_tag_title}")
     def add_new_product(self, product_name, meta_tag_title):
         self.logger.info("Add new PRODUCT with NAME: %s, META TAG: %s" % (product_name, meta_tag_title))
         self.get_element(self.ADD_BUTTON)
@@ -76,6 +79,7 @@ class AdministrationPage(BasePage):
         self.click(self.BACK_BUTTON)
         return self
 
+    @allure.step("Ищу новый продукт: {name}")
     def find_new_product(self, name):
         self.logger.info("Execute SEARCH of %s", name)
         self.input_value(self.FILTER_INPUT, name)
@@ -86,6 +90,7 @@ class AdministrationPage(BasePage):
         data_element = self.get_element(self.DATA_ELEMENT)
         return self
 
+    @allure.step("Копирую продукт")
     def copy_product(self):
         self.get_element(self.PRODUCT_CECKBOX_FIRST)
         self.click(self.PRODUCT_CECKBOX_FIRST)
@@ -93,6 +98,7 @@ class AdministrationPage(BasePage):
         self.click(self.PRODUCT_COPY_BUTTON)
         return self
 
+    @allure.step("Удаляю продукт")
     def delete_product(self):
         self.get_element(self.PRODUCT_CHECKBOX_SECOND)
         self.click(self.PRODUCT_CHECKBOX_SECOND)
@@ -100,6 +106,7 @@ class AdministrationPage(BasePage):
         self.click(self.PRODUCT_DELETE_BOTTON)
         return self
 
+    @allure.step("Проверяю статус")
     def cheсk_status(self):
         product_status = self.get_element(self.PRODUCT_STATUS)
         return product_status.text

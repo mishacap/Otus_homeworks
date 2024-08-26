@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
@@ -23,10 +24,12 @@ class BasePage:
     def get_alert(self, locator: tuple, timeout=3):
         return WebDriverWait(self.browser, timeout).until(EC.alert_is_present(locator))
 
+    @allure.step("Выполняю клик по элементу {locator}")
     def click(self, locator: tuple):
         self.logger.debug("%s: Clicking element: %s" % (self.class_name, str(locator)))
         ActionChains(self.browser).move_to_element(self.get_element(locator)).pause(0.3).click().perform()
 
+    @allure.step("Ввожу данные: {text} в инпут {locator}")
     def input_value(self, locator: tuple, text: str):
         self.logger.debug("%s: Input %s in input %s" % (self.class_name, text, locator))
         self.get_element(locator).click()

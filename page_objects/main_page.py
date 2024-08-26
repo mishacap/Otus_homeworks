@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver.common.by import By
 from page_objects.base_page import BasePage
 
@@ -21,6 +22,7 @@ class MainPage(BasePage):
 
 
 
+    @allure.step("Выполняю поиск по значению: {value}")
     def main_search(self, value):
         self.logger.info("Execute SEARCH of %s", value)
         self.input_value(self.SEARCH_INPUT, value)
@@ -93,11 +95,3 @@ class MainPage(BasePage):
     def check_currency_featured(self):
         currency_element = self.get_element(self.FEATURED)
         return currency_element.text
-
-
-
-
-
-
-
-

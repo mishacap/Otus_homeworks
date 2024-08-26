@@ -1,5 +1,7 @@
 import datetime
+import json
 
+import allure
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -72,16 +74,28 @@ def browser(request):
     else:
         raise ValueError(f"Browser {browser_name} not supported")
 
-    browser.logger = logger
+    allure.attach(
+        name=browser.session_id,
+        body=json.dumps(browser.capabilities, indent=4, ensure_ascii=False),
+        attachment_type=allure.attachment_type.JSON
+    )
 
+    browser.logger = logger
     logger.info("Browser %s started" % browser_name)
 
     browser.maximize_window()
 
     yield browser
 
-    logger.info("===> Test %s finished at %s" % (request.node.name, datetime.datetime.now()))
+    if request.node.status == "failed":
+        allure.attach(
+            name="failure_screenshot",
+            body=browser.get_screenshot_as_png(),
+            attachment_type=allure.attachment_type.PNG
+        )
+
     browser.close()
+    logger.info("===> Test %s finished at %s" % (request.node.name, datetime.datetime.now()))
 
 
 

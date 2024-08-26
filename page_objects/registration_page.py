@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver.common.by import By
 from page_objects.base_page import BasePage
 
@@ -19,6 +20,8 @@ class RegistrationPage(BasePage):
         self.get_element(self.PRIVACY_POLICY_SWITCHER)
         return self
 
+
+    @allure.step("Выполняю регистрацию нового клиента")
     def registration(self, firstname, lastname, email, password):
         self.logger.info("Registered user with FIRST NAME: %s, LAST NAME: %s, EMAIL: %s, PASSWORD: %s" %
                          (firstname, lastname, email, password))
