@@ -147,10 +147,6 @@ def test_add_new_product(browser, base_url):
         try:
             admin_page.add_new_product(*product_data)
         except ElementClickInterceptedException as excep:
-            allure.attach(
-                body=browser.get_screenshot_as_png(),
-                name="screenshot_image",
-                attachment_type=allure.attachment_type.PNG)
             raise AssertionError(excep.msg)
 
     admin_page.wait_alert_and_back()

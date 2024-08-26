@@ -41,10 +41,11 @@ def pytest_addoption(parser):
 def pytest_runtest_makereport(item, call):
     outcome = yield
     rep = outcome.get_result()
-    if rep.outcome != "passed":
-        item.status = "failed"
+    if rep.outcome != 'passed':
+        item.status = 'failed'
     else:
-        item.status = "passed"
+        item.status = 'passed'
+
 
 @pytest.fixture()
 def browser(request):
