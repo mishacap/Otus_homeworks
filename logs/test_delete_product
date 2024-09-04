@@ -1,0 +1,15 @@
+INFO ===> Test test_delete_product started at 2024-08-20 18:16:50.308355
+INFO Browser ch started
+INFO ===> Test test_delete_product finished at 2024-08-20 18:16:51.311271
+INFO AdministrationPage: Input user in input ('css selector', '#input-username')
+INFO AdministrationPage: Input bitnami in input ('css selector', '#input-password')
+INFO ===> Test test_delete_product started at 2024-08-20 18:17:52.974335
+INFO Browser ch started
+INFO AdministrationPage: Input user in input ('css selector', '#input-username')
+INFO AdministrationPage: Input bitnami in input ('css selector', '#input-password')
+INFO ===> Test test_delete_product finished at 2024-08-20 18:18:00.086273
+INFO ===> Test test_delete_product started at 2024-08-20 18:21:56.677948
+INFO Browser Chrome started
+INFO ===> Test test_delete_product finished at 2024-08-20 18:21:57.664159
+INFO AdministrationPage: Input user in input ('css selector', '#input-username')
+INFO AdministrationPage: Input bitnami in input ('css selector', '#input-password')

@@ -1,0 +1,33 @@
+INFO ===> Test test_add_new_product started at 2024-08-20 18:16:40.162879
+INFO Browser ch started
+INFO ===> Test test_add_new_product finished at 2024-08-20 18:16:41.138153
+INFO AdministrationPage: Input user in input ('css selector', '#input-username')
+INFO AdministrationPage: Input bitnami in input ('css selector', '#input-password')
+INFO AdministrationPage: Input test Wind in input ('css selector', '#input-name-1')
+INFO AdministrationPage: Input Task in input ('css selector', '#input-meta-title-1')
+INFO AdministrationPage: Input test Wind in input ('css selector', '#input-model')
+INFO AdministrationPage: Input Task in input ('css selector', '#input-keyword-0-1')
+INFO Execute SEARCH of test Wind
+INFO AdministrationPage: Input test Wind in input ('css selector', '#input-name')
+INFO ===> Test test_add_new_product started at 2024-08-20 18:17:42.734820
+INFO Browser ch started
+INFO AdministrationPage: Input user in input ('css selector', '#input-username')
+INFO AdministrationPage: Input bitnami in input ('css selector', '#input-password')
+INFO AdministrationPage: Input test Edge in input ('css selector', '#input-name-1')
+INFO AdministrationPage: Input Nor in input ('css selector', '#input-meta-title-1')
+INFO AdministrationPage: Input test Edge in input ('css selector', '#input-model')
+INFO AdministrationPage: Input Nor in input ('css selector', '#input-keyword-0-1')
+INFO Execute SEARCH of test Edge
+INFO AdministrationPage: Input test Edge in input ('css selector', '#input-name')
+INFO ===> Test test_add_new_product finished at 2024-08-20 18:17:52.884531
+INFO ===> Test test_add_new_product started at 2024-08-20 18:21:46.616213
+INFO Browser Chrome started
+INFO ===> Test test_add_new_product finished at 2024-08-20 18:21:47.571613
+INFO AdministrationPage: Input user in input ('css selector', '#input-username')
+INFO AdministrationPage: Input bitnami in input ('css selector', '#input-password')
+INFO AdministrationPage: Input test Of in input ('css selector', '#input-name-1')
+INFO AdministrationPage: Input Box in input ('css selector', '#input-meta-title-1')
+INFO AdministrationPage: Input test Of in input ('css selector', '#input-model')
+INFO AdministrationPage: Input Box in input ('css selector', '#input-keyword-0-1')
+INFO Execute SEARCH of test Of
+INFO AdministrationPage: Input test Of in input ('css selector', '#input-name')

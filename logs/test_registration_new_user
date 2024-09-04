@@ -1,0 +1,21 @@
+INFO ===> Test test_registration_new_user started at 2024-08-20 18:16:22.549147
+INFO Browser ch started
+INFO ===> Test test_registration_new_user finished at 2024-08-20 18:16:23.508608
+INFO RegistrationPage: Input Michael in input ('css selector', '#input-firstname')
+INFO RegistrationPage: Input Ramirez in input ('css selector', '#input-lastname')
+INFO RegistrationPage: Input derricklambert@example.org in input ('css selector', '#input-email')
+INFO RegistrationPage: Input test in input ('css selector', '#input-password')
+INFO ===> Test test_registration_new_user started at 2024-08-20 18:17:24.946451
+INFO Browser ch started
+INFO RegistrationPage: Input Katelyn in input ('css selector', '#input-firstname')
+INFO RegistrationPage: Input Morgan in input ('css selector', '#input-lastname')
+INFO RegistrationPage: Input adriandiaz@example.net in input ('css selector', '#input-email')
+INFO RegistrationPage: Input test in input ('css selector', '#input-password')
+INFO ===> Test test_registration_new_user finished at 2024-08-20 18:17:28.623518
+INFO ===> Test test_registration_new_user started at 2024-08-20 18:21:28.997705
+INFO Browser Chrome started
+INFO ===> Test test_registration_new_user finished at 2024-08-20 18:21:29.946189
+INFO RegistrationPage: Input Patrick in input ('css selector', '#input-firstname')
+INFO RegistrationPage: Input Fischer in input ('css selector', '#input-lastname')
+INFO RegistrationPage: Input barbara51@example.net in input ('css selector', '#input-email')
+INFO RegistrationPage: Input test in input ('css selector', '#input-password')

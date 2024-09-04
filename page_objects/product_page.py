@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver.common.by import By
 from page_objects.base_page import BasePage
 
@@ -8,6 +9,7 @@ class ProductPage(BasePage):
     ADD_TO_COMPARE = By.CSS_SELECTOR, "#content > div.row.mb-3 > div:nth-child(2) > form > div > button:nth-child(2)"
     QTY_INPUT = By.CSS_SELECTOR, "#input-quantity"
 
+    @allure.step("Ожидаю все элементы на странице продукта")
     def wait_product_elements(self):
         self.get_element(self.PRODUCT_NAME)
         self.get_element(self.ADD_TO_CART)
